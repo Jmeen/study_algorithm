@@ -1,18 +1,58 @@
 package com.beginner;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+
+		
 		
 		
 		
 	}
-	
-	
+
+	public static void bubblesort() {
+
+		// 정렬을 진행할 숫자들 입력, 해당 갯수에 맞게 수 입력
+		// 오름차순 하시오
+		Scanner sc = new Scanner(System.in);
+
+		int num = sc.nextInt();
+		int[] nums = new int[num];
+
+		for (int i = 0; i < num; i++) {
+			nums[i] = sc.nextInt();
+
+			for (int j = 0; j < i; j++) {
+				int temp = 0;
+				if (nums[j] > nums[i]) {
+					temp = nums[j];
+					nums[j] = nums[i];
+					nums[i] = temp;
+				}
+			}
+//			System.out.println(Arrays.toString(nums));
+		}
+		for (int i : nums) {
+			System.out.print(i + " ");
+		}
+	}
+
+	public static void subString() {
+		Scanner sc = new Scanner(System.in);
+
+		String str = sc.nextLine();
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+
+		String str1 = str.substring(a - 1, b + a - 1);
+		System.out.println(str1);
+
+	}
+
 	public static void square() {
-		
+
 		// 입력수가 갯수인 정사각형 만들기
 		// 순서는 위에서 아래로
 		Scanner sc = new Scanner(System.in);
@@ -20,7 +60,7 @@ public class Main {
 
 		for (int i = 1; i <= num; i++) {
 			for (int j = i; j < i + (num * num); j += num) {
-				System.out.print(j+"\t");
+				System.out.print(j + "\t");
 			}
 			System.out.println();
 		}
