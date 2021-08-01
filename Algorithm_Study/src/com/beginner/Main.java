@@ -1,15 +1,62 @@
 package com.beginner;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
 
-		
-		
-		
-		
+		// 회문
+
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int result = 2;
+		for (int k = 0; k < n; k++) {
+			System.out.println();
+			String str = sc.nextLine();
+			StringBuffer sb = new StringBuffer(str);
+			String str_re = sb.reverse().toString();
+
+//		System.out.println(str.length());
+
+			if (str.equals(str_re)) {
+//					System.out.println("회문입니다.");
+				result = 0;
+			} else {
+				for (int i = 0; i < str.length(); i++) {
+					StringBuffer sb_copy = new StringBuffer(sb);
+					StringBuffer str_sb = sb_copy.deleteCharAt(i);
+					String str_b = str_sb.toString();
+					String str_br = str_sb.reverse().toString();
+					if (str_b.equals(str_br)) {
+//							System.out.println("절반회문입니다.");
+						result = 1;
+						break;
+					}
+				}
+			}
+
+			System.out.println(str+" "+result);
+
+		}
+
+	}
+
+	public static void triangleArea() {
+		// 좌표 3개가 주어짐
+		// 3개로 삼각형의 넓이를 구해라
+		Scanner sc = new Scanner(System.in);
+		int x1 = 0, y1 = 0, x2 = 0, y2 = 0, x3 = 0, y3 = 0;
+		x1 = sc.nextInt();
+		y1 = sc.nextInt();
+		x2 = sc.nextInt();
+		y2 = sc.nextInt();
+		x3 = sc.nextInt();
+		y3 = sc.nextInt();
+		// 점 3개로 넓이 구하는 공식 사용
+		double r1 = x1 * y2 + x2 * y3 + x3 * y1;
+		double r2 = x2 * y1 + x3 * y2 + x1 * y3;
+		double s = Math.abs((r1 - r2) / 2.0); // 절대값
+		System.out.printf("%.2f", s);
 	}
 
 	public static void bubblesort() {
