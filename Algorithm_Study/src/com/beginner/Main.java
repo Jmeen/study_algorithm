@@ -5,6 +5,24 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 
+	}
+
+	public static void countingSqueare() {
+		// 정사각형의 갯수 구하기
+		// 한변의 길이가 n인 격자판이 있다. 각 격자의 길이가 1인경우, 크고 작은 정사각혀으이 갯수는?
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int count = 0;
+		for (int i = 0; i < n; i++) {
+			count += ((n - i) * (n - i));
+
+		}
+		System.out.println(count);
+
+	}
+
+	public static void reverseString() {
+
 		// 회문
 
 		Scanner sc = new Scanner(System.in);
@@ -35,7 +53,7 @@ public class Main {
 				}
 			}
 
-			System.out.println(str+" "+result);
+			System.out.println(str + " " + result);
 
 		}
 
