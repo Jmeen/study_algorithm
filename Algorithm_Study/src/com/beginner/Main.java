@@ -3,7 +3,27 @@ package com.beginner;
 import java.util.Scanner;
 
 public class Main {
+
 	public static void main(String[] args) {
+		// KOI 2019 막대기
+		// 높이가 다른 막대가 주어진다.
+		// 한방향에서 바라봤을때, 몇개가 보이는지 카운팅해라.
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int count = 1;
+		int[] nums = new int[n];
+		for (int k = 0; k < n; k++) {
+			nums[k] = sc.nextInt();
+		}
+		int temp = nums[n - 1];
+
+		for (int i = n - 2; i >= 0; i--) {
+			if (nums[i] > temp) {
+				temp = nums[i];
+				count++;
+			}
+		}
+		System.out.println(count);
 
 	}
 
