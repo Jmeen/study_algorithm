@@ -9,12 +9,53 @@ public class leetcode {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 //		char s = sc.next().charAt(0);
-		int[] nums = { 2, 5, 5, 11 };
-		int target = 10;
+		System.out.println(reverse(1999999999));
+	}
 
-		System.out.println(Arrays.toString(twoSum(nums, target)));
+	public static int reverse(int x) {
+
+		long result = 0;
+		while (x != 0) {
+			result = (result * 10) + (x % 10);
+			x /= 10;
+		}
+		return outOfRange(result) ? 0 : (int) result;
 
 	}
+
+	public static boolean outOfRange(long num) {
+		return num != (int) num;
+	}
+ /// 너무 복잡하게 생가하지 말자.
+//		int result = 0;
+//		String result_str = "";
+//		String str = Integer.toString(x);
+//		int a = 0;
+//		int b = str.length() - 1;
+//		boolean ch = true;
+//		char[] chs = new char[str.length()];
+//		for (int i = 0; i < str.length(); i++) {
+//			chs[i] = str.charAt(i);
+//		}
+//		while (a <= b) {
+//			if (ch) {
+//				if (chs[0] == '-') {
+//					a += 1;
+//					ch = false;
+//				}
+//			}
+//			char temp = chs[b];
+//			chs[b] = chs[a];
+//			chs[a] = temp;
+//			a++;
+//			b--;
+//		}
+//		
+//		for(char c : chs) {
+//			result_str+=c;
+//		}
+//		result = Integer.parseInt(result_str);
+//		return result;
 
 	public static int[] twoSum(int[] nums, int target) {
 		// leetcode 1. Two Sum
