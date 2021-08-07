@@ -1,6 +1,7 @@
 package com.beginner;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class leetcode {
@@ -17,22 +18,39 @@ public class leetcode {
 
 	public static int[] twoSum(int[] nums, int target) {
 		// leetcode 1. Two Sum
-		int[] result = new int[2];
 
+		// 해시맵은 key와 value값을 가지고 있다. - 0
+		HashMap<Integer, Integer> map = new HashMap<>();
+
+		// 반복을 하는데 - 1
 		for (int i = 0; i < nums.length; i++) {
-			for (int j = 1; j < nums.length; j++) {
-				if (i == j) {
-					continue;
-				}
-				if (nums[i] + nums[j] == target) {
-					result[0] = i;
-					result[1] = j;
-					return result;
-				}
+			// 만약 taget-nums[i]의 키를 map이 가지고 있으면 -3
+			if (map.containsKey(target - nums[i])) {
+				// 그 키의 값 (인덱스)를 가져와서 new int[]로 리턴한다. -- 4
+				return new int[] { map.get(target - nums[i]), i };
 			}
+			// 맵에 집어넣는다 (키값 , 값 )
+			// nums[i]가 키, 인덱스가 값이다. -2
+			map.put(nums[i], i);
 		}
+		return null;
 
-		return result;
+//		int[] result = new int[2];
+//
+//		for (int i = 0; i < nums.length; i++) {
+//			for (int j = 1; j < nums.length; j++) {
+//				if (i == j) {
+//					continue;
+//				}
+//				if (nums[i] + nums[j] == target) {
+//					result[0] = i;
+//					result[1] = j;
+//					return result;
+//				}
+//			}
+//		}
+//
+//		return result;
 
 	}
 
