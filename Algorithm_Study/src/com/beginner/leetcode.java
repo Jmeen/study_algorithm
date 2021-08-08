@@ -9,7 +9,30 @@ public class leetcode {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 //		char s = sc.next().charAt(0);
-		System.out.println(reverse(1999999999));
+		isPalindrome(-101);
+	}
+
+	public static boolean isPalindrome(int x) {
+		// leetcode 9. Palindrome Number
+		// 1차. 양수는 상관없는데 음수가 문제다.
+		int temp = x;
+		int value = 0;
+		while (temp != 0) {
+			value = (value * 10) + temp % 10;
+			temp /= 10;
+		}
+
+		// 2차. 만약 같은데 첫번쨰 글자가 '-'로 시작하면 같지 않다를 출력
+		String str1 = Integer.toString(value);
+		System.out.println(value);
+		if (x == value) {
+			if (str1.charAt(0) == '-') {
+				return false;
+			}
+			return true;
+		}
+		return false;
+
 	}
 
 	public static int reverse(int x) {
@@ -26,7 +49,7 @@ public class leetcode {
 	public static boolean outOfRange(long num) {
 		return num != (int) num;
 	}
- /// 너무 복잡하게 생가하지 말자.
+	/// 너무 복잡하게 생가하지 말자.
 //		int result = 0;
 //		String result_str = "";
 //		String str = Integer.toString(x);
