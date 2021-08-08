@@ -8,8 +8,60 @@ public class leetcode {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-//		char s = sc.next().charAt(0);
-		isPalindrome(-101);
+		System.out.println(romanToInt("IV"));
+	}
+
+	public static int romanToInt(String s) {
+		// leetcode 13. Roman to Integer
+		int result = 0;
+
+//		char[] chs = new char[s.length()];
+//		for (int i = 0; i < s.length(); i++) {
+//			chs[i] = s.charAt(i);
+//		}
+		for (int i = 0; i < s.length(); i++) {
+			switch (s.charAt(i)) {
+			case 'I':
+				result += 1;
+				if (s.charAt(i + 1) == 'V' || s.charAt(i + 1) == 'X') {
+					result=-1;}
+				else {
+					result++;}
+				break;
+			case 'V':
+				result += 5;
+				break;
+			case 'X':
+				if (i == s.length() - 1) {
+					result += 10;
+					break;
+				}
+				if (s.charAt(i + 1) == 'L' || s.charAt(i + 1) == 'C') {
+					result -= 10;}
+				else {
+					result += 10;}
+				break;
+			case 'L':
+				result += 50;
+				break;
+			case 'C':
+				result += 100;
+				if (s.charAt(i + 1) == 'D' || s.charAt(i + 1) == 'M') {
+					result -= 100;}
+				else {
+					result += 100;}
+				break;
+			case 'D':
+				result += 500;
+				break;
+			case 'M':
+				result += 1000;
+				break;
+			}
+		}
+		System.out.println(result);
+		return result;
+
 	}
 
 	public static boolean isPalindrome(int x) {
@@ -49,36 +101,6 @@ public class leetcode {
 	public static boolean outOfRange(long num) {
 		return num != (int) num;
 	}
-	/// 너무 복잡하게 생가하지 말자.
-//		int result = 0;
-//		String result_str = "";
-//		String str = Integer.toString(x);
-//		int a = 0;
-//		int b = str.length() - 1;
-//		boolean ch = true;
-//		char[] chs = new char[str.length()];
-//		for (int i = 0; i < str.length(); i++) {
-//			chs[i] = str.charAt(i);
-//		}
-//		while (a <= b) {
-//			if (ch) {
-//				if (chs[0] == '-') {
-//					a += 1;
-//					ch = false;
-//				}
-//			}
-//			char temp = chs[b];
-//			chs[b] = chs[a];
-//			chs[a] = temp;
-//			a++;
-//			b--;
-//		}
-//		
-//		for(char c : chs) {
-//			result_str+=c;
-//		}
-//		result = Integer.parseInt(result_str);
-//		return result;
 
 	public static int[] twoSum(int[] nums, int target) {
 		// leetcode 1. Two Sum
